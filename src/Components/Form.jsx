@@ -1,50 +1,62 @@
 import { useState } from "react";
 
-export const Form = ({ objEntry }) => {
-  const [data, setData] = useState({});
+export const Form = ({ formDataList }) => {
+  const [formdata, setFromData] = useState({});
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-    setData({
-      ...data,
+    setFromData({
+      ...formdata,
       [name]: value,
       type: "entry",
+      id: generateRandomId(),
     });
   };
+
+  function generateRandomId(length = 10) {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let randomId = "";
+    for (let i = 0; i < length; i++) {
+      randomId += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }
+    return randomId;
+  }
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    // console.log(data);
-    objEntry(data); //passing object
+    // console.log(formdata);
+    formDataList(formdata);
   };
+
   return (
-    <div className="form d-flex justify-content-center mt-3">
-      <form action="javascript:void(0)" onSubmit={handleOnSubmit}>
-        <div className="row g-3">
-          <div className="col-md-7">
+    <div className="mt-5 p-5 ">
+      <form onSubmit={handleOnSubmit}>
+        <div className="row g-2">
+          <div className="col-md-6">
             <input
               type="text"
               className="form-control"
-              placeholder="task"
-              aria-label="task"
-              id="task"
+              placeholder="Task"
+              aria-label="Task"
               name="task"
               onChange={handleOnChange}
-              required
             />
           </div>
           <div className="col-md-2">
             <input
               type="number"
               className="form-control"
-              placeholder="hours"
-              aria-label="hours"
-              id="hours"
+              placeholder="Hours"
+              aria-label="Hours"
               name="hours"
               onChange={handleOnChange}
-              required
             />
           </div>
-          <div className="col-md-3 d-grid">
-            <button className="btn btn-primary">Add New Task</button>
+          <div className="col-md-4">
+            <button className="btn btn-primary">Add User</button>
           </div>
         </div>
       </form>

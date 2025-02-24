@@ -1,7 +1,13 @@
-export const TotalHours = () => {
+export const TotalHours = ({ totalhours, badHours }) => {
+  //   console.log(totalhours);
   return (
-    <div className="ttlhrs d-flex justify-content-center mt-3 p-2 bg-success-subtle col-md-6 m-auto">
-      The total hours allocated 50 hrs
-    </div>
+    <>
+      <div className="ttlhrs bg-secondary text-center m-auto">
+        TotalHours = {totalhours}
+      </div>
+      <div className="ttlhrs bg-secondary text-center m-auto">
+        You could saved = {badHours} hours
+      </div>
+    </>
   );
 };
