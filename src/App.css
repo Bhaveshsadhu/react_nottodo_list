@@ -4,7 +4,7 @@ body {
   padding: 0;
 }
 .wrapper {
-  height: 100vh;
+  height: 100%;
   background: linear-gradient(rgba(255, 0, 0, 0.219), rgba(0, 0, 255, 0.425));
   width: 80%;
   border: 1px solid black;

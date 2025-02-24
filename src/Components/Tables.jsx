@@ -10,7 +10,7 @@ export const Tables = ({
 
   return (
     <div className="tables d-flex justify-content-center g-2 row p-4">
-      <div className="entryTable me-2 col-md-6">
+      <div className="entryTable me-2 col-md-5">
         <h2>Entry Table</h2>
         <table className="table">
           <thead>
@@ -47,7 +47,7 @@ export const Tables = ({
         </table>
       </div>
 
-      <div className="badlisttable col-md-6">
+      <div className="badlisttable col-md-5">
         <h2>BadList Table</h2>
         <table className="table">
           <thead>
