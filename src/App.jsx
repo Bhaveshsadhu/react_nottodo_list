@@ -72,17 +72,19 @@ function App() {
   };
 
   const deleteTask = (id) => {
-    setEntryTaskList((prevList) => {
-      const updatedList = prevList.filter((task) => task.id !== id);
-      countTotalHours(updatedList);
-      return updatedList;
-    });
+    if (window.confirm("Are you sure want to delete ?")) {
+      setEntryTaskList((prevList) => {
+        const updatedList = prevList.filter((task) => task.id !== id);
+        countTotalHours(updatedList);
+        return updatedList;
+      });
 
-    setBadTaskList((prevList) => {
-      const updatedList = prevList.filter((task) => task.id !== id);
-      countBadHours(updatedList);
-      return updatedList;
-    });
+      setBadTaskList((prevList) => {
+        const updatedList = prevList.filter((task) => task.id !== id);
+        countBadHours(updatedList);
+        return updatedList;
+      });
+    }
   };
 
   return (
